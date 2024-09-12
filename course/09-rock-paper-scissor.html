@@ -29,11 +29,18 @@
         Scissors
     </button>
 
+    <p class="js-result"></p>
+    <p class="js-moves"></p>
+    <p class="js-score"></p>
+
     <button onclick="
         score.losses = 0;
         score.wins = 0;
         score.ties = 0;
         localStorage.removeItem('score');
+        updateScoreElement();
+        document.querySelector('.js-moves').innerHTML = '';
+        document.querySelector('.js-result').innerHTML = '';
     "> 
         Reset score
     </button>
@@ -42,6 +49,8 @@
         // Math.random() Will create a random number in range[0, 1)
             let score = JSON.parse(localStorage.getItem('score')) || {losses: 0, wins: 0, ties: 0};
 
+            updateScoreElement();            
+            
             function playGame(playerMove) {
                 let computerMove = pickComputerMove();
                 
@@ -75,9 +84,16 @@
                     score.wins += 1;
                 }
 
-                localStorage.setItem('score', JSON.stringify(score))
-                alert(`You pick ${playerMove}. Computer pick ${computerMove}. Reasult: ${result}\nWins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`)
-            } 
+                localStorage.setItem('score', JSON.stringify(score));
+                updateScoreElement();
+                updateMove(playerMove, computerMove);
+                updateResult(result);
+            }
+
+            function updateScoreElement() {
+                document.querySelector('.js-score')
+                    .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+            }
 
             function pickComputerMove() {
                 let randomNumber = Math.random();  
@@ -93,6 +109,17 @@
 
                 return computerMove;
             }
+
+            function updateMove(playerMove, computerMove) {
+                document.querySelector('.js-moves')
+                    .innerHTML = `You ${playerMove} - ${computerMove} Computer`;
+            }
+
+            function updateResult(result) {
+                document.querySelector('.js-result')
+                    .innerHTML = result;
+            }
+
     </script>
 </body>
 </html>

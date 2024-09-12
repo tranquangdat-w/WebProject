@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>08 Rock Paper Scissors</title>
+    <title>Rock Paper Scissors</title>
 </head>
 
 <body>
@@ -29,54 +29,34 @@
         Scissors
     </button>
 
-    <button onclick="
-        score.losses = 0;
-        score.wins = 0;
-        score.ties = 0;
-        localStorage.removeItem('score');
-    "> 
-        Reset score
-    </button>
-
     <script>
         // Math.random() Will create a random number in range[0, 1)
-            let score = JSON.parse(localStorage.getItem('score')) || {losses: 0, wins: 0, ties: 0};
-
             function playGame(playerMove) {
                 let computerMove = pickComputerMove();
+                console.log(computerMove)
                 
                 let result;
 
-                if (playerMove === 'Rock') {
-                    if (computerMove === 'Rock') {
+                if (playerMove == 'Rock') {
+                    if (computerMove == 'Rock') {
                         result = 'Tie';
                     } else {
                         result = (computerMove === 'Scissors') ? 'You win' : 'You lose';
                     }
-                } else if (playerMove === 'Paper') {
-                    if (computerMove === 'Paper') {
+                } else if (playerMove == 'Paper') {
+                    if (computerMove == 'Paper') {
                         result = 'Tie';
                     } else {
                         result = (computerMove === 'Rock') ? 'You win' : 'You lose';
                     }
                 } else {
-                    if (computerMove === 'Scissors') {
+                    if (computerMove == 'Scissors') {
                         result = 'Tie';
                     } else {
                         result = (computerMove === 'Paper') ? 'You win' : 'You lose';
                     }
-                }
-
-                if (result === 'Tie') {
-                    score.ties += 1;
-                } else if(result === 'You lose') {
-                    score.losses += 1;
-                } else if (result === 'You win') {
-                    score.wins += 1;
-                }
-
-                localStorage.setItem('score', JSON.stringify(score))
-                alert(`You pick ${playerMove}. Computer pick ${computerMove}. Reasult: ${result}\nWins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`)
+                } 
+                alert(`You pick ${playerMove}. Computer pick ${computerMove}. Reasult: ${result}`)
             } 
 
             function pickComputerMove() {
@@ -90,7 +70,7 @@
                 } else if (randomNumber > 2 / 3) {
                     computerMove = 'Scissors';
                 }
-
+                console.log(randomNumber) 
                 return computerMove;
             }
     </script>

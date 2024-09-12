@@ -34,28 +34,63 @@
 
         // console.log(product);
 
-        const product2 = {
-            name: 'shirt',
-            'delivery-time': '1 day',
-            rating: {
-                starts: 4.5,
-                count: 87
-            },
+        // const product2 = {
+        //     name: 'shirt',
+        //     'delivery-time': '1 day',
+        //     rating: {
+        //         starts: 4.5,
+        //         count: 87
+        //     },
 
-            fun: function function1() {
-                console.log('Function inside a object');
-            }
+        //     fun: function function1() {
+        //         console.log('Function inside a object');
+        //     }
+        // };
+
+        // product2.fun()
+
+        // console.log(JSON.stringify(product2)) //Json remove function in object because it doesn't support function data type
+
+        // const jsonString = JSON.stringify(product2)
+
+        // console.log(JSON.parse(jsonString))
+
+        // object 2 copy tham chieu toi dia chi o nho cua object 1. Nen neu thay doi value thuoc tinh cua object1 thi cung se tao ra thay doi object1. Nhung neu ta thay doi dia chi o nho cua bien object1 thi object2 van se giu nguyen o nho ban dau va khong co thay doi gi
+        let object1 = {
+            message: 'hello'
+        };  
+
+        const object2 = object1;
+
+        console.log(object2);
+        // object1 = 1 //  Thay doi gia chi o nho cua bien object 1
+        object1.message = 'no'; // Thay doi gia tri cua thuoc tinh nhung khong thay doi vi tri o nho.
+        console.log(object2);
+
+        const object3  = {
+            message: 'no'
         };
 
-        product2.fun()
+        // Khi so sanh 2 object thi se so sanh dia chi o nho theo mac dinh
+        console.log(object1 === object3); // false vi tuy cung mot gia tri nhung ma khac dia chi o nho
+        console.log(object1 === object2); // true vi cung mot o nho
 
-        console.log(JSON.stringify(product2)) //Json remove function in object because it doesn't support function data type
+        const object4 = {
+            message: 'no',
+            price: 799
+        };
 
-        const jsonString = JSON.stringify(product2)
+        //  const message = object4.message
+        const { message, price }  = object4
 
-        console.log(JSON.parse(jsonString))
+        const object5 = {
+            message,
+            method() {
+                console.log("method")
+            }
+        }
 
-        
+        console.log(object5)
     </script>    
 </body>
 </html>
