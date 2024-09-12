@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+
+<body>
+    <script>
+        // Object is a variable contains many values.
+        // Syntax of a object in js is let name = {property1: value_1, ....propertyn: value_n}
+        // if we try to call a property doesn't exists. It will return a undefine value.
+        // We can create a property in a object by using name.newProperty = value.
+        // We can detele a product.property by type delete name.property. 
+        // We can acess property of product by using name['property']
+        // We will use name.property by default. If it doesn't, we'll use name['property']
+        // In a object it contains any type of data like int, string ,object,...
+        // A function can be a property of object because in js function is another type of value
+        // Note that when call a function-a property of object we need syntax like name.property()
+        // JSON built-in object help we convert json <-> js object
+
+        // const product = {
+        //     name: 'socks',
+        //     price: 1090
+        // };
+
+        // console.log(product);
+        // console.log(product.name);
+        // console.log(product.price);
+
+        // product.newProperty = true;
+        // delete product.newProperty;
+
+        // console.log(product);
+
+        const product2 = {
+            name: 'shirt',
+            'delivery-time': '1 day',
+            rating: {
+                starts: 4.5,
+                count: 87
+            },
+
+            fun: function function1() {
+                console.log('Function inside a object');
+            }
+        };
+
+        product2.fun()
+
+        console.log(JSON.stringify(product2)) //Json remove function in object because it doesn't support function data type
+
+        const jsonString = JSON.stringify(product2)
+
+        console.log(JSON.parse(jsonString))
+
+        
+    </script>    
+</body>
+</html>
