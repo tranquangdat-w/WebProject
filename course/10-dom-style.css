@@ -1,0 +1,60 @@
+.subscribe-button {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    border-radius: 30px;
+    padding: 8px 10px; /*(top-bottom) (left-right) if 4 parameter top right bottom left*/
+}
+
+.is-subscribed {
+    background-color: rgb(240,240,240);
+    color: black;
+}
+
+.subscribe-button:hover, 
+.is-subscribed:hover {
+    cursor: pointer;
+}
+
+.subscribe-button {
+    margin: 10px 20px 10px 0px;
+}
+
+.cost-orders {
+    padding: 10px 8px;
+    font-size: 15px;
+    border-width: 1px;
+    border-color: gray;
+}
+
+.cost-orders:focus {
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: blue;
+}
+
+.calculate-button {
+    background-color: green;
+    padding:11px 8px;
+    border: none;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.calculate-button:hover {
+    background-color: rgb(14, 48, 201);
+    transition: 0.3s;    
+}
+
+body {
+   background-color: gray; 
+}
+
+p {
+    color: white;
+    font-weight: 600;
+}

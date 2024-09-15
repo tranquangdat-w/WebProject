@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="heads-button" onclick="displayResult('heads')">
+        heads
+    </button>
+
+    <button class="tails-button" onclick="displayResult('tails')">
+        tails
+    </button>
+
+    <p class="result"></p>
+    <input type="text" placeholder="Type your name" class="input-name" onkeydown="handelKeydown(event)">
+    <button onclick="findName()">find</button>
+    <p class="name"></p>
+
+    <input type="text" placeholder="" onkeyup="document.querySelector('.copy-text').innerHTML = document.querySelector('.input-keyup').value" class="input-keyup">
+    <p class="copy-text"></p>
+
+    <button class="show-quantity-button" onclick="updateCartQuantity(0)">
+        Show Quantity
+    </button>
+
+    <button class="add-to-cart-button" onclick="updateCartQuantity(1)">
+        Add to cart
+    </button>
+
+    <button onclick="updateCartQuantity(2)">
+        +2
+    </button>
+
+    <button onclick="updateCartQuantity(3)">
+        +3
+    </button>
+
+    <button onclick="updateCartQuantity(4)">
+        +4
+    </button>
+
+    <button onclick="updateCartQuantity(5)">
+        +5
+    </button>
+
+    <button class="remove-to-cart-button" onclick="updateCartQuantity(-1)">
+        Remove to cart
+    </button>
+
+    <button onclick="updateCartQuantity(-2)">
+        -2
+    </button>
+
+    <button onclick="updateCartQuantity(-3)">
+        -3
+    </button>
+
+    <button onclick="updateCartQuantity(-cartQuantity)">
+        Reset
+    </button>
+    <p class="cart-quantity"></p>
+
+    <script>
+        let cartQuantity = Number(localStorage.getItem('cartQuantity')) || 0;
+
+        document.querySelector('.cart-quantity').innerHTML = `Cart quantity: ${cartQuantity}`
+
+        function updateCartQuantity(n) {
+            cartQuantity = cartQuantity + n;
+
+            cartQuantity = (cartQuantity>= 0) ? cartQuantity : 0;
+
+            document.querySelector('.cart-quantity').innerHTML = `Cart quantity: ${cartQuantity}`; 
+
+            localStorage.setItem('cartQuantity', String(cartQuantity));
+        }
+
+        function displayResult(result) {
+            document.querySelector('.result')
+                .innerHTML = `You chose: ${result}`;
+        }
+
+        function findName() {
+            const name = document.querySelector('.input-name').value;
+            document.querySelector(".name").innerHTML = `Your name is: ${name}`
+        }
+
+        function handelKeydown(event) {
+            if (event.key == 'Enter') {
+                findName();
+            }
+        }
+    </script> 
+</body>
+</html>

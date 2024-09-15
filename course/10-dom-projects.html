@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dom Projects</title>
+    <link rel="stylesheet" href="./10-dom-style.css">
 </head>
 <body>
     <p>Youtube</p>
@@ -23,14 +24,20 @@
 
     <button onclick="
         calculteTotalCost(); 
-    ">calculate</button>
+    " class="calculate-button">calculate</button>
 
     <p class="total-cost"></p>
     <script>
         function changeSubscribeButton() {
             const subscribeButtonEle = document.querySelector('.subscribe-button');
 
-            subscribeButtonEle.innerHTML = (subscribeButtonEle.innerText === 'Subscribe') ? 'Subscribed': "Subscribe";
+            if (subscribeButtonEle.innerText === 'Subscribe') {
+                subscribeButtonEle.innerHTML = 'Subscribed';
+                subscribeButtonEle.classList.add('is-subscribed');
+            } else if (subscribeButtonEle.innerText === 'Subscribed') {
+                subscribeButtonEle.innerHTML = 'Subscribe';
+                subscribeButtonEle.classList.remove('is-subscribed');
+            }
         }
 
         function calculteTotalCost() {

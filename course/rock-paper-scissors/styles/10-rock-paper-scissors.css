@@ -1,0 +1,49 @@
+body {
+    background-color: rgb(25, 25, 25);
+}
+
+p {
+    color: white;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold; 
+}
+
+.play-button {
+    background-color: transparent;
+    padding: 40px;
+    border-radius: 100px;
+    border: solid 2px white;
+    margin: 10px 20px;
+    cursor: pointer;
+}
+
+.play-icon {
+    object-fit: cover;
+    width: 60px;
+}
+
+.js-result {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+
+.js-moves {
+    margin: 10px 0px;
+}
+
+.js-score {
+    margin: 60px 10px 10px 0px;
+}
+
+.reset-button {
+    padding: 10px 20px;
+    border: none; 
+    font-size: 15px;
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
