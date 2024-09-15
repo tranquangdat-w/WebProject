@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        list = ['apple', 'grape', 'apple', 'apple'];
+        counter = {};
+
+        for (let i = 0;i  < list.length; i++) {
+            if (counter[list[i]]) {
+                counter[list[i]] += 1;
+            } else {
+                counter[list[i]] = 1;
+            }
+        }
+
+        console.log(counter)
+    </script>
+</body>
+</html>
