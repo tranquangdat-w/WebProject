@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12</title>
+</head>
+<body>
+    <script>
+        /* 12a */
+        const add = function() {
+            console.log(2 + 3);
+        }
+
+
+        /* 12b */ 
+        function runTwice(function2) {
+            function2();
+            function2();
+        }
+
+        runTwice(function() {
+            console.log('12b')
+        });
+
+        runTwice(add());
+
+    </script>
+</body>
+</html>
