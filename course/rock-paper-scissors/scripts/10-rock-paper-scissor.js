@@ -94,9 +94,13 @@ function updateResult(result) {
         .innerHTML = result;
 }
 
+// const autoPlay = () => { khong nen su dung arrow function o day
+
+// };
+
 function autoPlay() {
     if (!isAutoPlaying) {
-        intervalId = setInterval(function() {
+        intervalId = setInterval(() => {
             const playerMove = pickComputerMove();
             playGame(playerMove);
         }, 500);
@@ -106,3 +110,19 @@ function autoPlay() {
         isAutoPlaying = false;
     }
 }
+
+document.querySelector('.rock-button').addEventListener('click', () => playGame("Rock"));
+
+document.querySelector('.paper-button').addEventListener('click', () => playGame("Paper"));
+
+document.querySelector('.scissors-button').addEventListener('click', () => playGame("Scissors"));
+
+document.body.addEventListener('keydown', (event) => {
+    if (event.key === 'r') {
+        playGame("Rock");
+    } else if (event.key === 'p') {
+        playGame('Paper');
+    } else if (event.key == 's') {
+        playGame('Scissors')
+    }
+});
