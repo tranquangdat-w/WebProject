@@ -28,23 +28,15 @@
     <p class="js-moves">You <img src="./rock-emoji.png" alt="rock-icon" class="play-icon"> <img src="./paper-emoji.png" alt="paper-icon" class="play-icon"> Computer</p>
     <p class="js-score"></p>
 
-    <button onclick="
-        score.losses = 0;
-        score.wins = 0;
-        score.ties = 0;
-        localStorage.removeItem('score');
-        updateScoreElement();
-        document.querySelector('.js-moves').innerHTML = '';
-        document.querySelector('.js-result').innerHTML = '';
-    " class="reset-button"> 
+    <button class="reset-button"> 
         Reset score
     </button>
 
-    <button class="auto-play-button" onclick="
-        autoPlay(); 
-    ">
+    <button class="auto-play-button">
         Auto play
     </button>
+
+    <p class="message"></p>
 
     <script src="./scripts/10-rock-paper-scissor.js"></script>
 </body>

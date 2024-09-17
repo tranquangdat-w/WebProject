@@ -105,10 +105,48 @@ function autoPlay() {
             playGame(playerMove);
         }, 500);
         isAutoPlaying = true;
+
+        document.querySelector('.auto-play-button')
+            .innerHTML = 'Stop Auto Play';
     } else {
         clearInterval(intervalId);
         isAutoPlaying = false;
+        
+        document.querySelector('.auto-play-button')
+            .innerHTML = 'Auto Play';
+
     }
+}
+
+function resetScore() {
+    const messageEle = document.querySelector('.message');
+
+    messageEle.innerHTML = `Are you sure you want to reset the score?
+        <button class='confirm-button yes-button'>
+            Yes
+        </button> 
+        
+        <button class='confirm-button no-button'>
+           No 
+        </button> 
+        `;
+
+    document.querySelector('.yes-button').addEventListener('click', () => {
+        score.losses = 0;
+        score.wins = 0;
+        score.ties = 0;
+        localStorage.removeItem('score');
+        updateScoreElement();
+        document.querySelector('.js-moves').innerHTML = '';
+        document.querySelector('.js-result').innerHTML = '';
+
+        messageEle.innerHTML = '';
+    });
+
+    document.querySelector('.no-button').addEventListener('click', () => {
+        messageEle.innerHTML = '';
+    });
+    
 }
 
 document.querySelector('.rock-button').addEventListener('click', () => playGame("Rock"));
@@ -118,11 +156,23 @@ document.querySelector('.paper-button').addEventListener('click', () => playGame
 document.querySelector('.scissors-button').addEventListener('click', () => playGame("Scissors"));
 
 document.body.addEventListener('keydown', (event) => {
-    if (event.key === 'r') {
+    const keyCode = event.key;
+
+    if (keyCode === 'r') {
         playGame("Rock");
-    } else if (event.key === 'p') {
+    } else if (keyCode === 'p') {
         playGame('Paper');
-    } else if (event.key == 's') {
+    } else if (keyCode === 's') {
         playGame('Scissors')
+    } else if (keyCode === 'a') {
+        autoPlay();
+    } else if (keyCode === ' ') {
+        resetScore();
     }
+});
+
+document.querySelector('.auto-play-button').addEventListener('click', () => autoPlay());
+
+document.querySelector('.reset-button').addEventListener('click', () => {
+    resetScore();
 });

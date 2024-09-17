@@ -70,6 +70,34 @@
             }
         }, 1000);
 
-            </script>
+        const multiply = (a, b) => a * b;
+
+        console.log(multiply(3,5));
+
+        const countPositive = (nums) => nums.filter((value, index) => value > 0).length;
+
+        console.log(`count nums: ${countPositive([1, 2, 3, -2, -3])}`);
+
+        const addNum = (array, num) => array.map((value) => value + num);
+
+        console.log(addNum([1, 2, 3], 1));
+
+        function removeEgg(array) {
+            let count = 0;
+
+            return array.filter((value) => {
+                if (value === 'egg' && count < 2) {
+                    count ++;
+
+                    return false;
+                } 
+                
+                return true;
+            });
+        }
+        console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'egg', 'ham']));
+
+
+        </script>
 </body>
 </html>
