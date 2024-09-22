@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/general.css">
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+
+<body>
+    <!--HEADER-->
+    <header class="amazon-header">
+        <div class="amazon-header-left-section">
+            <a href="./amazon.html" class="header-link">
+                <img class="amazon-icon" src="./images/icons/amazon-logo-white.png" alt="amazon icon">
+            </a>
+        </div>
+
+        <div class="amazon-header-middle-section">
+            <input class='search-bar'type="text" placeholder="Search">
+
+            <button class="search-button">
+                <img class="search-icon" src="./images/icons/search-icon.png" alt="search icon">
+            </button>
+        </div>
+
+        <div class="amazon-header-right-section">
+            <a class ="orders-link" href="./orders.html">
+                <span class="orders-text">Orders</span>
+                <span class="returns-text">& Returns</span>
+            </a>
+
+            <a class="cart-link" href="./checkout.html">
+                <img class="cart-icon" src="./images/icons/cart-icon.png" alt="cart icon">
+                <div class="cart-quantity">
+                    3
+                </div>
+                <div class="cart-text">
+                    Cart
+                </div>
+            </a>
+        </div>
+    </header>
+    
+    <!--MAIN SECTION-->
+    <div class="main">
+        <div class="products-grid"></div>
+    </div>
+
+    <script src="./script/amazonheader.js"></script>
+    <script src="./script/amazon.js"></script>
+</body>
+</html>

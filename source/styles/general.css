@@ -1,0 +1,19 @@
+body {
+    font-family: Roboto, Arial;
+    color: rgb(33, 33, 33);
+
+    margin: 0px;
+    height: 5000px;
+}
+
+button {
+    cursor: pointer;
+}
+
+select {
+    cursor: pointer;
+}
+
+input, select, button {
+    font-family: Roboto, Arial;
+}
