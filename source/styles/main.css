@@ -66,6 +66,9 @@
    height: 200px;
 }
 
+.product-image-container:hover {
+   cursor: pointer;
+}
 .product-image {
    object-fit: contain;
    height: 100%;
