@@ -16,14 +16,33 @@ searchBarInput.addEventListener("blur", () => {
 const sideBarNavigationEl = document.getElementById("sidebar-container-navigation-id")
 const sidebarOPenNavigationEl = document.getElementById("open-nav-sidebar")
 const sidebarCloseNavigationEl = document.getElementById("sidebar-navigation-close");
+const sidebarBackGroundEl = document.querySelector('.sidebar-background') 
+
+function openSideBar() {
+    sideBarNavigationEl.classList.toggle("sidebar-show");
+    document.querySelector(".sidebar-background").style.display = "block";
+}
+
+function closeSideBar() {
+    sideBarNavigationEl.classList.remove("sidebar-show");
+    document.querySelector(".sidebar-background").style.display = "none";
+}
 
 sidebarOPenNavigationEl.addEventListener("click", () => {
-    sideBarNavigationEl.classList.toggle("sidebar-show")
-    document.querySelector(".sidebar-background").style.display = "block"
+    openSideBar();
 });
 
 sidebarCloseNavigationEl.addEventListener("click", () => {
-    sideBarNavigationEl.classList.remove("sidebar-show")
-    document.querySelector(".sidebar-background").style.display = "none"
+    closeSideBar();
+});
+
+
+document.body.addEventListener("keydown", (event) => {
+    if (event.key == 'Escape') {
+        closeSideBar();
+    }
+})
+sidebarBackGroundEl.addEventListener("click", () => {
+    closeSideBar()
 });
 

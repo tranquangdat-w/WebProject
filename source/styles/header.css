@@ -194,11 +194,13 @@
 }
 
 .options-container div {
+    flex-shrink: 0;
     font-size: 15px;
     border: 1px solid #232f3e;
     padding: 9px;
     cursor: pointer;
 }
+
 
 .options-container div:hover {
     border: 1px solid white; 
