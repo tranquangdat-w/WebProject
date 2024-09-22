@@ -16,7 +16,7 @@
     bottom: 0;
     right: 0;
     left:0;
-    z-index: 9;
+    z-index: 8;
     background-color: rgba(0,0,0,0.7);
     display: none;
 }
@@ -29,6 +29,7 @@
     background-color: white;
     width: 350px;
     height: 100%;
+    overflow-y: scroll;
 }
 
 .sidebar-top {

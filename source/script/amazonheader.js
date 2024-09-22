@@ -30,19 +30,23 @@ function closeSideBar() {
 
 sidebarOPenNavigationEl.addEventListener("click", () => {
     openSideBar();
+    document.body.style.overflow = 'hidden';
 });
 
 sidebarCloseNavigationEl.addEventListener("click", () => {
     closeSideBar();
+    document.body.style.overflow = '';
 });
 
 
 document.body.addEventListener("keydown", (event) => {
     if (event.key == 'Escape') {
         closeSideBar();
+        document.body.style.overflow = '';
     }
 })
 sidebarBackGroundEl.addEventListener("click", () => {
+    document.body.style.overflow = '';
     closeSideBar()
 });
 
