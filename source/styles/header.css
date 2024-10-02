@@ -8,8 +8,7 @@
     align-items: center;
     justify-content: space-between;
     
-    position: fixed;
-    height: 70px;
+    height: 72px;
     top: 0;
     left: 0;
     right: 0;
@@ -23,12 +22,9 @@
 }
 
 .header-link {
-    display: inline-block;
     padding: 10px;
     border-radius: 2px;
     cursor: pointer;
-    text-align: none;
-    border: 1px solid black;
 }
 
 .amazon-icon {
@@ -76,7 +72,6 @@
     outline-width: 3px;
     outline-color: orange;
     outline-style: solid;
-
 }
 
 .search-button:hover {
@@ -176,18 +171,15 @@
 
 
 /* MENU */
-
 .options-container {
     display: flex;
     flex-direction: row;
     justify-content:left;
     padding-left: 20px;
-    margin-top: 70px;
     background-color: #232f3e;
     align-items: center;
     color: white;
     height: 40px;
-    position: fixed;
     top: 0; 
     left: 0;
     right: 0;
