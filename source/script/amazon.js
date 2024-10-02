@@ -702,7 +702,6 @@ products.forEach((product) => {
                 <button class="add-to-cart-button">
                     Add to Cart
                 </button>
-
             </div>
     `;
 });
