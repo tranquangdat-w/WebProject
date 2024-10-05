@@ -1,22 +1,25 @@
 .amazon-header {
-    background-color: black; 
-    padding-left: 10px;
-    padding-right: 10px;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    
-    height: 72px;
+    display: grid;
+    grid-template-columns: 1fr;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
 }
 
+.amazon-header-row-1 {
+    background-color: black; 
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    height: 70px;
+}
+
 /* LEFT SECTION */
 .amazon-header-left-section {
-    width: 180px;
     display: flex;
     align-items: center;
 }
@@ -34,8 +37,6 @@
 /* MIDDLE SECTION */
 .amazon-header-middle-section {
     flex: 1;
-    margin-left: 10px;
-    margin-right: 10px;
     display: flex;
 }
 
@@ -47,7 +48,6 @@
     padding-left: 15px;
     margin-left: -3px;
     border-radius: 0px;
-    border-right: none;
 }
 
 .search-bar-focused {
@@ -102,10 +102,10 @@
 
 /* RIGHT SECTION */
 .amazon-header-right-section {
-    width: 180px;
     flex-shrink: 0;
     display: flex;
     justify-content:space-between;
+    gap:10px;
 }
 
 .orders-link {
@@ -150,12 +150,12 @@
 
 .cart-quantity {
     color: orange;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: bold;
 
     position: absolute;
     top: 10px;
-    left: 25px;
+    left: 23px;
 
     width: 26px;
     text-align: center;
@@ -165,37 +165,38 @@
 .header-link:hover, 
 .orders-link:hover,
 .cart-link:hover {
-    border: 1px solid white;
+    outline: 1px solid white;
 }
-
-
 
 /* MENU */
 .options-container {
     display: flex;
     flex-direction: row;
     justify-content:left;
-    padding-left: 20px;
-    background-color: #232f3e;
     align-items: center;
+    padding-left: 18px;
+    background-color: #232f3e;
     color: white;
     height: 40px;
-    top: 0; 
-    left: 0;
-    right: 0;
+    list-style-type: none;
+    margin: 0px;
 }
 
-.options-container div {
-    flex-shrink: 0;
-    font-size: 15px;
-    border: 1px solid #232f3e;
-    padding: 9px;
+.options-container li {
     cursor: pointer;
+    flex-shrink: 0;
+    padding: 9px;
+}
+
+.options-container a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 15px;
 }
 
 
-.options-container div:hover {
-    border: 1px solid white; 
+.options-container li:hover {
+    outline: 1px solid white; 
 }
 
 .all-container {
@@ -203,11 +204,7 @@
     align-items: center;
 }
 
-.all-text {
-    margin: 0px;
-}
-
 .menu-icon {
     width: 20px;
-    margin-right: 6px;
+    margin-right: 4px;
 }
