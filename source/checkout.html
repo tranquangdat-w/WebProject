@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Check Cart</title>
+    <title>Check out</title>
 
     <!--LOGO TITLE-->
     <link rel="icon" href="./images/icons/amazon-logo-title-white.png">
@@ -14,104 +14,110 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <!--CSS-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/general.css">
     <link rel="stylesheet" href="./styles/sidebar.css">
-    <link rel="stylesheet" href="./styles/checkout.css">
 </head>
 
 <body>
     <!--HEADER-->
     <header class="amazon-header">
-        <div class="amazon-header-left-section">
-            <a href="./amazon.html" class="header-link">
-                <img class="amazon-icon" src="./images/icons/amazon-logo-white.png" alt="amazon icon">
-            </a>
-        </div>
-
-        <div class="amazon-header-middle-section">
-            <div class="amazon-header-middle-section-selector">
-                <select value = "All" class="selector-header">
-                    <option>
-                        All Department 
-                    </option>
-
-                    <option>
-                        Arts & Crafts
-                    </option>
-
-                    <option>
-                        Automotive
-                    </option>
-
-                    <option>
-                        Baby
-                    </option>
-
-                    <option>
-                        Books
-                    </option>
-                </select>
+        <div class="amazon-header-row-1">
+            <div class="amazon-header-left-section">
+                <a href="./amazon.html" class="header-link">
+                    <img class="amazon-icon" src="./images/icons/amazon-logo-white.png" alt="amazon icon">
+                </a>
             </div>
-            <input class='search-bar'type="text" placeholder="Search">
-
-            <button class="search-button">
-                <img class="search-icon" src="./images/icons/search-icon.png" alt="search icon">
-            </button>
+        
+            <div class="amazon-header-middle-section">
+                <div class="amazon-header-middle-section-selector">
+                    <select value = "All" class="selector-header">
+                        <option>
+                            All Department 
+                        </option>
+                    
+                        <option>
+                            Arts & Crafts
+                        </option>
+                    
+                        <option>
+                            Automotive
+                        </option>
+                    
+                        <option>
+                            Baby
+                        </option>
+                    
+                        <option>
+                            Books
+                        </option>
+                    </select>
+                </div>
+            
+                <input class='search-bar'type="text" placeholder="Search">
+            
+                <button class="search-button">
+                    <img class="search-icon" src="./images/icons/search-icon.png" alt="search icon">
+                </button>
+            </div>
+        
+            <div class="amazon-header-right-section">
+                <a class ="orders-link" href="./orders.html">
+                    <span class="orders-text">Orders</span>
+                    <span class="returns-text">& Returns</span>
+                </a>
+            
+                <a class="cart-link" href="./checkout.html">
+                    <img class="cart-icon" src="./images/icons/cart-icon.png" alt="cart icon">
+                    <div class="cart-quantity js-cart-quantity">
+                        0 
+                    </div>
+                    <div class="cart-text">
+                        Cart
+                    </div>
+                </a>
+            </div>
         </div>
 
-        <div class="amazon-header-right-section">
-            <a class ="orders-link" href="./orders.html">
-                <span class="orders-text">Orders</span>
-                <span class="returns-text">& Returns</span>
-            </a>
-
-            <a class="cart-link" href="./checkout.html">
-                <img class="cart-icon" src="./images/icons/cart-icon.png" alt="cart icon">
-                <div class="cart-quantity">
-                    10
-                </div>
-                <div class="cart-text">
-                    Cart
-                </div>
-            </a>
-        </div>
-
-    </header>
-    <div class="menu-bar">
-            <div class="options-container">
-                <div class="all-container" id="open-nav-sidebar">
+        <div class="menu-bar">
+            <ul class="options-container">
+                <li class="all-container" id="open-nav-sidebar">
                     <img class= "menu-icon" src="./images/icons/icons8-menu-50.png" alt="menu-icon">
                     <span class="all-text">
                         All
                     </span>
-                </div>
+                </li>
 
-                <div class="menu-bar-option today-deals">
-                    Today's Deals
-                </div>
+                <li class="menu-bar-option today-deals">
+                    <a href="">Today's Deals</a>
+                </li>
 
-                <div class="menu-bar-option customer-service">
-                    Customer Service
-                </div>
+                <li class="menu-bar-option customer-service">
+                    <a href="">Customer Service</a>
+                </li>
 
-                <div class="menu-bar-option registry">
-                    Registry
-                </div>
+                <li class="menu-bar-option registry">
+                    <a href="">Registry</a> 
+                </li>
 
-                <div class="menu-bar-option gift-cards">
-                    Gift Cards
-                </div>
+                <li class="menu-bar-option gift-cards">
+                    <a href="">Gift Cards</a>
+                </li>
 
-                <div class="menu-bar-optino sell">
-                    Sell
-                </div>
-            </div>
+                <li class="menu-bar-optino sell">
+                    <a href="">Sell</a>
+                </li>
+            </ul>
         </div>
-        
+    </header>
+                
         <!--SIDE BAR-->
-        <div class="sidebar-background"></div>
+
+        <div class="sidebar-background">
+            <button id="sidebar-navigation-close">
+                &times;
+            </button>
+        </div>
         <div class="sidebar-container-navigation" id="sidebar-container-navigation-id">
             <div class="sidebar-left-part">
                 <div class="sidebar-top">
@@ -141,20 +147,28 @@
                     <h2>Shop by Department</h2>
                     <a href="" class="sidebar-item-option">
                         <div>Electronics</div>
-                        <div class="next-icon"</div>></div>
+                        <div class="next-icon">
+                            >
+                        </div>
 
                     <a href="" class="sidebar-item-option">
                         <div>Computers</div>
-                        <div class="next-icon"</div>></div>
+                        <div class="next-icon">
+                            >
+                        </div>
                     </a>
 
                     <a href="" class="sidebar-item-option">
                         <div>Smart Home</div>
-                        <div class="next-icon"</div>></div>
+                        <div class="next-icon">
+                            >
+                        </div>
                     </a>
                      <a href="" class="sidebar-item-option">
                         <div>Arts & Crafts</div>
-                        <div class="next-icon"</div>></div>
+                        <div class="next-icon"> 
+                            >
+                        </div>
                     </a>
                 </div>
 
@@ -162,16 +176,21 @@
                     <h2>Programs & Features</h2>
                     <a href="" class="sidebar-item-option">
                         <div>Gifts Cards</div>
-                        <div class="next-icon"</div>></div>
+                        <div class="next-icon">></div>
+                    </a>
 
                     <a href="" class="sidebar-item-option">
                         <div>Shop By Interest</div>
-                        <div class="next-icon"</div>></div>
+                        <div class="next-icon">
+                            >
+                        </div>
                     </a>
 
                     <a href="" class="sidebar-item-option">
                         <div>Amazon Live</div>
-                        <div class="next-icon"</div>></div>
+                        <div class="next-icon">
+                            >
+                        </div>
                     </a>
                 </div>
 
@@ -194,14 +213,11 @@
                         <div>Sign In</div>
                     </a>
                 </div>
- 
             </div>
-
-            <button id="sidebar-navigation-close">
-                <img class="close-sidebar-icon" src="./images/icons/icons8-x-50.png" alt="close icon">
-            </button>
         </div>
 
     <script src="./script/amazonheader.js"></script>
 </body>
 </html>
+
+

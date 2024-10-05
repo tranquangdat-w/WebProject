@@ -65,19 +65,19 @@ document.querySelectorAll('.add-to-cart-button')
           matchingItem = item;
         }
       });
+
       const quantity = parseInt(document.querySelector(`.js-quantity-selector-${productId}`).value, 10)
 
       if (matchingItem) {
         // Because matchingItem is reference variable
         matchingItem.quantity += quantity;
-        if (matchingItem.quantity > 99) {
-          document.querySelector(".cart-quantity").style.fontSize = '13px';
-        }
+
+        if (matchingItem.quantity > 99) document.querySelector(".cart-quantity").style.fontSize = '13px';
       } else {
         cart.push({
           productId: productId,
           productName: productName,
-          quantity : 1,
+          quantity : quantity,
         });
       }
 
