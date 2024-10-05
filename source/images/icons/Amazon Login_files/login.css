@@ -1,0 +1,133 @@
+.login-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10%;
+}
+
+.amazon-logo-container {
+    width: 100px;
+}
+
+.amazon-logo-icon {
+    width: 100%;
+}
+
+.info-box {
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 450px;
+    padding: 10px 30px;
+}
+
+.login-input {
+    width: 100%;
+    padding: 10px 0px;
+    border: 1px solid;
+    margin-bottom: 10px;
+    font-size: 20px;
+    border-radius: 4px;
+}
+
+.login-input:focus {
+    outline: 2px solid orange;
+}
+
+.sign-in-button {
+    display: block;
+    width: 100%;
+    padding: 0px;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgb(236, 181, 78);
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px; 
+    transition: 0.5s;
+}
+
+.sign-in-button:hover {
+    background-color: rgb(194, 148, 63);
+}
+
+.title-login {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.password,
+.email-text {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.create-account-container {
+    border-top: 1px solid rgb(151, 149, 149);
+    margin-top: -10px;
+    margin-bottom: 60px;
+}
+
+.new-to-amazon {
+    background-color: #f4f4f5;
+    display: inline-block ;
+    color: rgb(156, 154, 154);
+}
+
+.create-acount-button {
+    background-color: rgb(182, 176, 176);
+}
+
+.create-acount-button:hover {
+    background-color: rgb(182, 176, 176);
+    opacity: 0.5;
+}
+
+.amazon-info {
+    border-top: 1px solid rgb(151, 149, 149);
+    display: flex;
+    justify-content: left;
+    flex-shrink: 0;
+    padding-top: 10px;
+    color: rgb(74, 74, 199);
+    gap: 20px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.amazon-info div {
+    cursor: pointer;
+}
+
+.amazon-time {
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.wrong-password-container {
+    display: flex;
+    justify-content: space-between;
+}
+.wrong-password {
+    color: rgb(158, 10, 10);
+}
+
+.forgot-password {
+    color: rgb(74, 74, 199);
+    text-decoration:underline;
+    cursor: pointer;
+}
+

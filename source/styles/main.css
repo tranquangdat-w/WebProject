@@ -1,5 +1,5 @@
 .main {
-    margin-top: 100px;
+    padding-top: 110px;
 }
 
 .products-grid {
@@ -10,11 +10,18 @@
     .products-grid {
         grid-template-columns: 1fr;
     }
+
+    .search-bar {
+        display: none;
+    }
 }
 
 @media (min-width: 451px) and (max-width: 670px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .search-bar {
     }
 }
 
