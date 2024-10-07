@@ -1,0 +1,33 @@
+.cart-site {
+    position: relative;
+    background-color: white;
+    border-left: solid 2px rgba(0,0,0,0.3);
+}
+
+.cart-site p {
+    display: flex;
+    justify-content: center;
+}
+
+.cart-summary {
+    align-items: center;
+    position: fixed;
+}
+
+.item-container {
+    margin-top: 10px;
+    position: fixed;
+    top: 80px;
+    bottom: 0px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.item-img-container:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.item {
+    margin-top: 20px;
+    border-top: solid 1px black;
+}

@@ -1,10 +1,5 @@
-.amazon-header {
-    display: grid;
-    grid-template-columns: 1fr;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+.content {
+    position: relative;
 }
 
 .amazon-header-row-1 {
@@ -208,3 +203,5 @@
     width: 20px;
     margin-right: 4px;
 }
+
+ 

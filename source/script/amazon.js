@@ -2,6 +2,7 @@ import { cart } from "../../data/cart.js";
 import { products } from "../../data/products.js"
 
 let productsHTML = '';
+
 products.forEach((product) => {
     productsHTML += `
             <div class="product-container">
@@ -43,7 +44,9 @@ products.forEach((product) => {
                 
                 <button class="add-to-cart-button"
                 data-product-name="${product.name}"
-                data-product-id="${product.id}">
+                data-product-id="${product.id}"
+                data-product-image="${product.image}"
+                data-product-price="${product.priceCents}">
                     Add to Cart
                 </button>
             </div>
@@ -53,13 +56,43 @@ products.forEach((product) => {
 document.querySelector(".products-grid")
     .innerHTML = productsHTML;
 
+
+document.querySelector(".cart-quantity")
+  .innerHTML = cart.length ? calTotalCartQuantity(cart) : 0;
+if (cart.length === 0) {
+  /* remove cart site*/
+  document.querySelector(".cart-site")
+    .innerHTML = ""
+  document.querySelector("body").style.gridTemplateColumns = '1fr'
+  document.querySelector(".amazon-header").style.right = '120px';
+} else {
+  document.querySelector(".cart-site")
+    .innerHTML = `
+       <div class="cart-site">
+        <div class="cart-summary">
+            <p style="margin-bottom: 0px; font-size: 13px; font-weight: bold;">Subtotal</p>
+            <p class="sub-total" style="margin-top: 5px; color: red; font-weight: bold; font-size: 12px;">$7.99</p>
+            <a href="./checkout.html" style="display: flex; justify-content: center; text-decoration: none; width: 100%;"></a>
+                <button style="font-size: 11px; border-radius: 10px; border: solid 1px; width: 100%; padding:0px;">Go to cart</button>
+            </a>
+        </div> 
+        
+        <div class="item-container"></div>
+    </div>  
+    ` 
+  document.querySelector("body").style.gridTemplateColumns = '1fr 120px'
+  document.querySelector(".amazon-header").style.right = '120px';
+}
+
+
 document.querySelectorAll('.add-to-cart-button')
   .forEach((button) => {
     button.addEventListener('click', () => {
       const productName = button.dataset.productName;
       let matchingItem;
       const productId = button.dataset.productId;
-
+      const productPrice = button.dataset.productPrice;
+      const productImage = button.dataset.productImage;
       cart.forEach((item) => {
         if (item.productId === productId) {
           matchingItem = item;
@@ -78,15 +111,77 @@ document.querySelectorAll('.add-to-cart-button')
           productId: productId,
           productName: productName,
           quantity : quantity,
+          priceCents: productPrice,
+          image: productImage
         });
       }
 
-      let cartQuantity = 0;
+      localStorage.setItem('cart', JSON.stringify(cart))
+
+      let cartQuantity = calTotalCartQuantity(cart);
       cart.forEach((item) => {
         cartQuantity += item.quantity; 
       })
 
       document.querySelector(".js-cart-quantity")
         .innerHTML = cartQuantity
+      let cartHTML = '';
+      cart.forEach((product) => {
+      cartHTML += `
+                  <div class="item">
+                      <div class="item-img-container" style="display: flex; justify-content: center;">
+                          <img style="width:120px" src="${product.image}" alt="">
+                      </div>
+
+                      <p style="font-size: 13px; font-weight: bold;">
+                          $${(product.priceCents / 100).toFixed(2)}
+                      </p>
+
+                      <div class="change-quantity" style="display: flex; justify-content: space-between;">
+                          <select class="js-quantity-selector-${product.productId}">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                              <option value="9">9</option>
+                              <option value="10">10</option>
+                          </select>
+
+                          <button>Remove</button>
+                      </div>
+                  </div> 
+        `
+      })
+
+    document.querySelector(".item-container")
+        .innerHTML = cartHTML;
+    document.querySelector(".sub-total")
+        .innerHTML = (calTotalPrice(cart) / 100).toFixed(2)
+
     });
- });
+
+});
+
+function calTotalCartQuantity(cart) {
+   let total = 0;
+
+   cart.forEach((item) => {
+     total += item.quantity;
+   });
+
+   return total;
+}
+
+function calTotalPrice(cart) {
+  let total = 0;
+
+  cart.forEach((item) => {
+    total += item.priceCents * item.quantity; 
+  });
+
+  return total
+}
