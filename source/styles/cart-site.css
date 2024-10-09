@@ -7,19 +7,22 @@
 .cart-site p {
     display: flex;
     justify-content: center;
+    align-items: center;
+    font-weight: bold;
 }
 
 .cart-summary {
     /* width: 100%; when position is fixed it will use width of screen for this.*/ 
     align-items: center;
     position: fixed;
-    width: 120px; /* same width with cart site*/
+    width: 150px; /* same width with cart site*/
 }
 
 .item-container {
+    border-top: solid 1px gray;
     margin-top: 10px;
     position: fixed;
-    top: 80px;
+    top: 130px;
     bottom: 0px;
     overflow-y: scroll;
     overflow-x: hidden;
