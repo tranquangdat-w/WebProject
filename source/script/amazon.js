@@ -72,8 +72,8 @@ if (cart.length === 0) {
         <div class="cart-summary">
             <p style="margin-bottom: 0px; font-size: 13px; font-weight: bold;">Subtotal</p>
             <p class="sub-total" style="margin-top: 5px; color: red; font-weight: bold; font-size: 12px;">$7.99</p>
-            <a href="./checkout.html" style="display: flex; justify-content: center; text-decoration: none; width: 100%;"></a>
-                <button style="font-size: 11px; border-radius: 10px; border: solid 1px; width: 100%; padding:0px;">Go to cart</button>
+            <a href="./checkout.html" style="display: flex; justify-content: center; text-decoration: none; width: 100%;">
+                <button style="font-size: 11px; border-radius: 10px; border: solid 1px; width: 100%; padding: 3px 0px;"> Go to cart</button>
             </a>
         </div> 
         
@@ -98,7 +98,7 @@ document.querySelectorAll('.add-to-cart-button')
           matchingItem = item;
         }
       });
-
+  
       const quantity = parseInt(document.querySelector(`.js-quantity-selector-${productId}`).value, 10)
 
       if (matchingItem) {

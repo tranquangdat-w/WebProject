@@ -10,8 +10,10 @@
 }
 
 .cart-summary {
+    /* width: 100%; when position is fixed it will use width of screen for this.*/ 
     align-items: center;
     position: fixed;
+    width: 120px; /* same width with cart site*/
 }
 
 .item-container {
@@ -23,6 +25,9 @@
     overflow-x: hidden;
 }
 
+.item-img-container {
+    padding-top: 20px;
+}
 .item-img-container:hover {
     background-color: rgba(0,0,0,0.1);
 }
