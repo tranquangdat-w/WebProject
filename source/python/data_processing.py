@@ -1,3 +1,4 @@
+"""Module to connection to mongodb"""
 from mongo_connection import collection
 
 
