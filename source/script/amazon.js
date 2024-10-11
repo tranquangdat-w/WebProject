@@ -1,106 +1,11 @@
 import { cart } from "../../data/cart.js";
 import { products } from "../../data/products.js"
 
-let productsHTML = '';
-
-products.forEach((product) => {
-    productsHTML += `
-            <div class="product-container">
-                <div class="product-image-container">
-                    <img class="product-image" src="${product.image}" alt="">
-                </div>
-
-                <div class="product-name">
-                    ${product.name} 
-                </div>
-
-                <div class="starts-rating-container">
-                    <img class="start-img" src="./images/ratings/rating-${product.rating.stars * 10}.png" alt="0 starts rating">
-                    <div class="number-ratings">
-                        $${product.rating.count}
-                    </div>
-
-                </div>
-
-                
-                <div class="price">
-                    $${(product.priceCents / 100).toFixed(2)}
-                </div>
-
-                <div class="product-quantity-container">
-                    <select class="js-quantity-selector-${product.id}">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-                </div>
-                
-                <button class="add-to-cart-button"
-                data-product-name="${product.name}"
-                data-product-id="${product.id}"
-                data-product-image="${product.image}"
-                data-product-price="${product.priceCents}">
-                    Add to Cart
-                </button>
-            </div>
-    `;
-});
-
-document.querySelector(".products-grid")
-    .innerHTML = productsHTML;
-
+renderMain(products) 
 
 renderCartSite()
 
-document.querySelectorAll('.add-to-cart-button')
-  .forEach((button) => {
-    button.addEventListener('click', () => {
-      const productName = button.dataset.productName;
-      let matchingItem;
-      const productId = button.dataset.productId;
-      const productPrice = button.dataset.productPrice;
-      const productImage = button.dataset.productImage;
-      cart.forEach((item) => {
-        if (item.productId === productId) {
-          matchingItem = item;
-        }
-      });
-  
-      const quantity = parseInt(document.querySelector(`.js-quantity-selector-${productId}`).value, 10)
-
-      if (matchingItem) {
-        // Because matchingItem is reference variable
-        matchingItem.quantity += quantity;
-
-        if (matchingItem.quantity > 99) document.querySelector(".cart-quantity").style.fontSize = '13px';
-      } else {
-        cart.push({
-          productId: productId,
-          productName: productName,
-          quantity : quantity,
-          priceCents: productPrice,
-          image: productImage
-        });
-      }
-
-      localStorage.setItem('cart', JSON.stringify(cart))
-
-      let cartQuantity = calTotalCartQuantity(cart);
-
-      document.querySelector('.js-cart-quantity')
-        .innerHTML = cartQuantity
-
-      renderCartSite();
-    });
-
-});
+addToCartEvent() 
 
 /* HELPER FUNCTION */
 function calTotalCartQuantity(cart) {
@@ -160,7 +65,7 @@ function renderCartSite() {
     cartHTML += `
                 <div class="item">
                     <div class="item-img-container" style="display: flex; justify-content: center;">
-                        <img style="width:150px" src="${product.image}" alt="">
+                        <img style="width:150px; height: 200px; object-fit: contain ;" src="${product.image}" alt="">
                     </div>
 
                     <p style="font-size: 13px;">
@@ -204,4 +109,132 @@ function renderCartSite() {
     removeAllButton.remove()
     })
   }
+}
+
+export function renderMain(listProducts) {
+  let productsHTML = '';
+
+  listProducts.forEach((product) => {
+  productsHTML += `
+              <div class="product-container">
+                  <div class="product-image-container">
+                      <img class="product-image" src="${product.image}" alt="">
+                  </div>
+
+                  <div class="product-name">
+                      ${product.name} 
+                  </div>
+
+                  <div class="starts-rating-container">
+                      <img class="start-img" src="./images/ratings/rating-${product.rating.stars * 10}.png" alt="0 starts rating">
+                      <div class="number-ratings">
+                          $${product.rating.count}
+                      </div>
+
+                  </div>
+
+                
+                  <div class="price">
+                      $${(product.priceCents / 100).toFixed(2)}
+                  </div>
+
+                  <div class="product-quantity-container">
+                      <select class="js-quantity-selector-${product.id}">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                      </select>
+                  </div>
+                
+                  <button class="add-to-cart-button"
+                  data-product-name="${product.name}"
+                  data-product-id="${product.id}"
+                  data-product-image="${product.image}"
+                  data-product-price="${product.priceCents}">
+                      Add to Cart
+                  </button>
+              </div>
+      `;
+  });
+
+  document.querySelector(".products-grid")
+      .innerHTML = productsHTML;
+}
+
+const searchButtonEle = document.querySelector('.search-button')
+const searchInputEle = document.querySelector('.search-bar')
+
+async function fetchDataSearch() {
+    const query = searchInputEle.value
+
+    const url = `http://127.0.0.1:8000/products/search/?query=${query}`
+
+    try {
+        const response = await fetch(url)
+
+        const data = await response.json();
+
+        console.log(data)
+        renderMain(data)
+        document.querySelector(".search-title")
+          .innerHTML = (data.length === 0) ? 'No results found' : `Results for ${query}`;
+        addToCartEvent()
+    }  catch (error) {
+        console.error('Có lỗi xảy ra:', error);
+    }
+}
+
+searchButtonEle.addEventListener("click", () => {
+    fetchDataSearch()
+})
+
+function addToCartEvent() {
+  document.querySelectorAll('.add-to-cart-button')
+    .forEach((button) => {
+      button.addEventListener('click', () => {
+        const productName = button.dataset.productName;
+        let matchingItem;
+        const productId = button.dataset.productId;
+        const productPrice = button.dataset.productPrice;
+        const productImage = button.dataset.productImage;
+        cart.forEach((item) => {
+          if (item.productId === productId) {
+            matchingItem = item;
+          }
+        });
+      
+        const quantity = parseInt(document.querySelector(`.js-quantity-selector-${productId}`).value, 10)
+
+        if (matchingItem) {
+          // Because matchingItem is reference variable
+          matchingItem.quantity += quantity;
+
+          if (matchingItem.quantity > 99) document.querySelector(".cart-quantity").style.fontSize = '13px';
+        } else {
+          cart.push({
+            productId: productId,
+            productName: productName,
+            quantity : quantity,
+            priceCents: productPrice,
+            image: productImage
+          });
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart))
+
+        let cartQuantity = calTotalCartQuantity(cart);
+
+        document.querySelector('.js-cart-quantity')
+          .innerHTML = cartQuantity
+
+        renderCartSite();
+      });
+  });
 }
