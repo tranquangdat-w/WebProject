@@ -128,7 +128,7 @@ export function renderMain(listProducts) {
                   <div class="starts-rating-container">
                       <img class="start-img" src="./images/ratings/rating-${product.rating.stars * 10}.png" alt="0 starts rating">
                       <div class="number-ratings">
-                          $${product.rating.count}
+                          ${product.rating.count}
                       </div>
 
                   </div>
