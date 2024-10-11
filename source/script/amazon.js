@@ -44,7 +44,7 @@ function renderCartSite() {
          <div class="cart-site">
           <div class="cart-summary">
               <p style="margin-bottom: 0px; font-size: 13px; font-weight: bold;">Subtotal</p>
-              <p class="sub-total" style="margin-top: 5px; color: red; font-weight: bold; font-size: 12px;">$7.99</p>
+              <p class="sub-total" style="margin-top: 5px; color: red; font-weight: bold; font-size: 12px;"></p>
               <a href="./checkout.html" style="display: flex; justify-content: center; text-decoration: none; width: 100%;">
                   <button style="font-size: 11px; border-radius: 10px; border: solid 1px; width: 100%; padding: 3px 0px; margin-bottom: 10px;"> Go to cart</button>
               </a>
@@ -58,7 +58,7 @@ function renderCartSite() {
   document.querySelector("body").style.gridTemplateColumns = '1fr 150px'
   document.querySelector(".amazon-header").style.right = '150px';
   document.querySelector(".sub-total")
-    .innerHTML = (calTotalPrice(cart) / 100).toFixed(2)
+    .innerHTML = `$${(calTotalPrice(cart) / 100).toFixed(2)}`
 
   let cartHTML = '';
   cart.forEach((product) => {
@@ -174,6 +174,12 @@ const searchInputEle = document.querySelector('.search-bar')
 async function fetchDataSearch() {
     const query = searchInputEle.value
 
+    if (!query) {
+      window.location.href = './amazon.html';
+
+      return
+    }
+
     const url = `http://127.0.0.1:8000/products/search/?query=${query}`
 
     try {
@@ -181,7 +187,6 @@ async function fetchDataSearch() {
 
         const data = await response.json();
 
-        console.log(data)
         renderMain(data)
         document.querySelector(".search-title")
           .innerHTML = (data.length === 0) ? 'No results found' : `Results for ${query}`;
