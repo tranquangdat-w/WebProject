@@ -195,6 +195,13 @@ searchButtonEle.addEventListener("click", () => {
     fetchDataSearch()
 })
 
+searchInputEle.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+      fetchDataSearch()
+      searchInputEle.value = '' 
+  }
+});
+
 function addToCartEvent() {
   document.querySelectorAll('.add-to-cart-button')
     .forEach((button) => {
