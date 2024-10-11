@@ -34,4 +34,4 @@ async def search_products_api(query: str = Query(..., description="Từ khóa đ
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="127.1.1.1", port=8000)
+    uvicorn.run(app, host="localhost", port=8000)
